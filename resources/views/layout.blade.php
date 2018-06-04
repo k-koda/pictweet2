@@ -5,13 +5,22 @@
     <title>Pictweet</title>
     <link rel="stylesheet" href="/css/style.css">
   </head>
+
   <body>
     <header class="header">
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">Pictweet</a></h1>
-        <div class="user_nav grid-6">
-          <a class="post" href="/tweets/create">投稿する</a>
-        </div>
+        @if (Auth::check())
+          <div class="user_nav grid-6">
+            <a class="post" href="/logout">ログアウト</a>
+            <a class="post" href="/tweets/create">投稿する</a>
+          </div>
+        @else
+          <div class="user_nav grid-6">
+            <a class="post" href="/login">ログイン</a>
+            <a class="post" href="/register">新規登録</a>
+          </div>
+        @endif
       </div>
     </header>
 
