@@ -16,7 +16,7 @@
         </div>
         <p>{{ $tweet->text }}</p>
         <span class="name">
-          <a href="#">
+          <a href="/users/{{ $tweet->user->id }}">
             <span>投稿者</span>
             {{ $tweet->user->name }}
           </a>

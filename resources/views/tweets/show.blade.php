@@ -6,7 +6,6 @@
       <div class="more">
         <span><img src='/images/arrow_top.png'></span>
         <ul class="more_list">
-          <a href="/tweets/{{ $tweet->id }}">詳細</a>
           @if (Auth::user()->id == $tweet->user->id)
             <li>
               <a href="/tweets/{{ $tweet->id }}/edit">編集</a>
