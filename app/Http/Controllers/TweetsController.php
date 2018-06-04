@@ -39,8 +39,9 @@ class TweetsController extends Controller {
 
     public function show($id) {
         $tweet = Tweet::find($id);
+        $comments = $tweet->comments()->get();
          
-        return view('tweets.show')->with('tweet', $tweet);
+        return view('tweets.show')->with(['tweet' => $tweet, 'comments' => $comments]);
     }
 
     public function edit($id) {

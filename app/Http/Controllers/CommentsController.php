@@ -17,6 +17,6 @@ class CommentsController extends Controller
         'text' => $request->text,
       ]);
 
-      retrun redirect("tweets/{$comment->tweet->id}");
+      return redirect("tweets/{$comment->tweet->id}");
     }
 }
