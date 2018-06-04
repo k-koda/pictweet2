@@ -23,5 +23,15 @@
         <a href="#"><span>投稿者</span>{{ $tweet->user->name }}</a>
       </span>
     </div>
+
+    <div class="container">
+    <!--ここからフォーム-->
+    @if (Auth::check())
+      {{ Form::open(['url' => "/tweets/{$tweet->id}/comments"]) }}
+      <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+      <input type="submit" value="SENT"
+      {{ Form::close() }}
+    @endif
+    </div>
   </div>
 @endsection
