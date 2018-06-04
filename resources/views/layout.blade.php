@@ -12,8 +12,15 @@
         <h1 class="grid-6"><a href="/">Pictweet</a></h1>
         @if (Auth::check())
           <div class="user_nav grid-6">
-            <a class="post" href="/logout">ログアウト</a>
-            <a class="post" href="/users/{{ Auth::user()->id }}">マイページ</a>
+            <span>
+              {{ Auth::user()->name }}
+              <ul class="user__info">
+                <li>
+                  <a href="/users/{{ Auth::user()->id }}">マイページ</a>
+                  <a href="/logout">ログアウト</a>
+                </li>
+              </ul>
+            </span>
             <a class="post" href="/tweets/create">投稿する</a>
           </div>
         @else
