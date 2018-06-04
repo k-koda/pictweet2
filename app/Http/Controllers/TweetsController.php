@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Tweet;
 
-class TweetsController extends Controller
-{
-    public function index(){
-      return view('tweets.index');
+class TweetsController extends Controller {
+    public function index() {
+      $tweets = Tweet::all();
+      return view('tweets.index') -> with('tweets', $tweets);
     }
 }
