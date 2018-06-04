@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Tweet;
+use Auth;
 
 class TweetsController extends Controller {
 
@@ -29,7 +30,8 @@ class TweetsController extends Controller {
         array (
           'name' => $request->name,
           'image' => $request->image,
-          'text' => $request->text
+          'text' => $request->text,
+          'user_id' => Auth::user()->id,
         )
       );
 
