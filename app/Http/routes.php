@@ -19,16 +19,18 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], 
     function() {
       Route::auth();
-
       Route::get('/', 'TweetsController@index');
-      Route::get('/tweets', 'TweetsController@index');
-      Route::get('/tweets/create', 'TweetsController@create');
-      Route::post('/tweets', 'TweetsController@store');
-      Route::get('/tweets/{id}', 'TweetsController@show');
-      Route::get('/tweets/{tweet_id}/edit', 'TweetsController@edit');
-      Route::patch('/tweets/{tweet_id}', 'TweetsController@update');
+      Route::resource('tweets', 'TweetsController');
+      Route::resource('tweets.comments', 'CommentsController', ['only' => 'store']);
       Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
-      //Route::resource('tweets', 'TweetsController');
-      Route::get('/users/{id}', 'UsersController@show');
+      Route::resource('users', 'UsersController', ['only' => 'show']);
+
+      //Route::get('/tweets', 'TweetsController@index');
+      //Route::get('/tweets/create', 'TweetsController@create');
+      //Route::post('/tweets', 'TweetsController@store');
+      //Route::get('/tweets/{id}', 'TweetsController@show');
+      //Route::get('/tweets/{tweet_id}/edit', 'TweetsController@edit');
+      //Route::patch('/tweets/{tweet_id}', 'TweetsController@update');
+      //Route::get('/users/{id}', 'UsersController@show');
     }
 );
