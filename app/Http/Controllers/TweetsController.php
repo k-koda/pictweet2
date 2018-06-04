@@ -36,4 +36,12 @@ class TweetsController extends Controller {
 
       return view('tweets.store');
     }
+
+    public function destroy($id) {
+      if (Tweet::find($id)->user_id == Auth::user()->id) {
+        Tweet::destroy($id);
+      }
+
+      return view('tweets.destroy');
+    }
 }
