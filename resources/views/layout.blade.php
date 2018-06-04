@@ -13,6 +13,7 @@
         @if (Auth::check())
           <div class="user_nav grid-6">
             <a class="post" href="/logout">ログアウト</a>
+            <a class="post" href="/users/{{ Auth::user()->id }}">マイページ</a>
             <a class="post" href="/tweets/create">投稿する</a>
           </div>
         @else
