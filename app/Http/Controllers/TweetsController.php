@@ -16,7 +16,7 @@ class TweetsController extends Controller {
 
     public function index() {
 
-      $tweets = Tweet::orderBy('created_at', 'DESC')->paginate(5);
+      $tweets = Tweet::with('user')->orderBy('created_at', 'DESC')->paginate(5);
       return view('tweets.index') -> with('tweets', $tweets);
 
     }
@@ -28,7 +28,6 @@ class TweetsController extends Controller {
     public function store(Request $request) {
       Tweet::create (
         array (
-          'name' => $request->name,
           'image' => $request->image,
           'text' => $request->text,
           'user_id' => Auth::user()->id,

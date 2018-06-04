@@ -25,5 +25,6 @@ Route::group(['middleware' => ['web']],
       Route::get('/tweets/create', 'TweetsController@create');
       Route::post('/tweets', 'TweetsController@store');
       //Route::resource('tweets', 'TweetsController');
+      Route::get('/users/{id}', 'UsersController@show');
     }
 );

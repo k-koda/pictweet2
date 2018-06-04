@@ -3,7 +3,7 @@
 @section ('content')
   <div class="contents row">
     <div class="container">
-      {{ Form::open(['url' => '/tweets', 'method' => 'post']) }}
+      {{ Form::open(['url' => '/tweets']) }}
         <h3>投稿する</h3>
         <input placeholder="Nickname" type="text" name="name">
         <input placeholder="Image Url" type="text" name="image">
