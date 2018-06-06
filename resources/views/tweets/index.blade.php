@@ -14,6 +14,7 @@
             @endif
           </ul>
         </div>
+        <!--<p>{!! $tweet->text !!}</p> -->
         <p>{{ $tweet->text }}</p>
         <span class="name">
           <a href="/users/{{ $tweet->user->id }}">
