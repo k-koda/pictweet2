@@ -37,6 +37,11 @@ class TweetsController extends Controller {
       return view('tweets.store');
     }
 
+    public function search(Request $request) {
+      $tweets = Tweet::where('text','LIKE', "%{$request->keyword}%")->orderBy('created_at', 'DESC')->paginate(5);
+      return view('tweets.search') -> with('tweets', $tweets);
+    }
+
     public function show($id) {
         $tweet = Tweet::find($id);
         $comments = $tweet->comments()->get();

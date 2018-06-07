@@ -10,8 +10,12 @@
     <header class="header">
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">Pictweet</a></h1>
-        @if (Auth::check())
-          <div class="user_nav grid-6">
+        <div class="user_nav grid-6">
+          <form action='/tweets/search' accept-charset="UTF-8" method="get">
+            <input class="search__query" name="keyword" placeholder="キーワードで検索" type="text" value="">
+          </form>
+          <form accept-charset="utf-8" action="/" class="js-search-submit" method="get"></form>
+          @if (Auth::check())
             <span>
               {{ Auth::user()->name }}
               <ul class="user__info">
@@ -22,13 +26,11 @@
               </ul>
             </span>
             <a class="post" href="/tweets/create">投稿する</a>
-          </div>
-        @else
-          <div class="user_nav grid-6">
+          @else
             <a class="post" href="/login">ログイン</a>
             <a class="post" href="/register">新規登録</a>
-          </div>
-        @endif
+          @endif
+        </div>
       </div>
     </header>
 
