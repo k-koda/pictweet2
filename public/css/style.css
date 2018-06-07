@@ -765,3 +765,9 @@ ul li {
 .pagination li {
     display: inline-block;
 }
+
+div.search__bar input.search__query {
+  width: 39.86667%;
+  clear:both;
+  display:block;
+}

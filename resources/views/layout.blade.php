@@ -10,11 +10,13 @@
     <header class="header">
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">Pictweet</a></h1>
-        <div class="user_nav grid-6">
+        <div class="search__bar grid-6">
           <form action='/tweets/search' accept-charset="UTF-8" method="get">
             <input class="search__query" name="keyword" placeholder="キーワードで検索" type="text" value="">
           </form>
           <form accept-charset="utf-8" action="/" class="js-search-submit" method="get"></form>
+        </div>
+        <div class="user_nav grid-6">
           @if (Auth::check())
             <span>
               {{ Auth::user()->name }}
